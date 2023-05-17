@@ -6,4 +6,5 @@ val DarkBlue = Color(0xFF1b2027)
 val LighBlue = Color(0xFF212b37)
 val LighGrey = Color(0xFFccd0d3)
 val Yellow = Color(0xFFFFBB3C)
+val Grey = Color(0xFF727272)
 

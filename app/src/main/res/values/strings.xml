@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">myBetApp</string>
+    <plurals name="month">
+        <item quantity="one">%s month</item>
+        <item quantity="other">%s months</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">%s day</item>
+        <item quantity="other">%s days</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">%s year</item>
+        <item quantity="other">%s years</item>
+    </plurals>
+
 </resources>
