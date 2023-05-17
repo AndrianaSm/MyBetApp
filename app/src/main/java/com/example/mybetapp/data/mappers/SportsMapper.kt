@@ -17,6 +17,7 @@ fun List<SportsDto>.toSportDataMap(): List<SportInfo> {
                     player1 = event.description?.substringBefore("-").orEmpty(),
                     player2 = event.description?.substringAfter("-").orEmpty(),
                     time = event.tt ?: 0,
+                    eventId = event.id.orEmpty()
                 )
             })
     }
