@@ -52,29 +52,7 @@ fun CountdownTimer(eventStartDateSeconds: Long) {
     }
 }
 
-//
-//private fun formatTime(remainingSeconds: Long): String {
-//    val secondsInMinute = 60
-//    val secondsInHour = 3600
-//    val secondsInDay = 86400
-//
-//    val hours = remainingSeconds / secondsInHour
-//    val minutes = (remainingSeconds % secondsInHour) / secondsInMinute
-//    val seconds = remainingSeconds % secondsInMinute
-//
-//    if (remainingSeconds >= secondsInDay) {
-//        return "${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}"
-//    }
-//
-//    return if (hours > 0) {
-//        "$hours hours"
-//    } else if (minutes > 0) {
-//        "$minutes minutes"
-//    } else {
-//        "$seconds seconds"
-//    }
-//}
-private fun formatTime(remainingSeconds: Long): String {
+fun formatTime(remainingSeconds: Long): String {
     val secondsInMinute = 60
     val secondsInHour = 3600
     val secondsInDay = 86400
@@ -87,8 +65,8 @@ private fun formatTime(remainingSeconds: Long): String {
     val seconds = remainingSeconds % secondsInMinute
 
     return when {
-        remainingSeconds >= secondsInMonth -> "in $months months"
-        remainingSeconds >= secondsInDay -> "in $days days"
+        remainingSeconds >= secondsInMonth -> if (months == 1L) "in $months month" else "in $months months"
+        remainingSeconds >= secondsInDay -> if (days == 1L) "in $days day" else "in $days days"
         else -> "${hours.toString().padStart(2, '0')}:${
             minutes.toString().padStart(2, '0')
         }:${seconds.toString().padStart(2, '0')}"
