@@ -13,10 +13,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
     @Provides
     @Singleton
-    fun provideSprotsApi(): SportsApi {
+    fun provideSportsApi(): SportsApi {
         return Retrofit.Builder()
             .baseUrl("https://618d3aa7fe09aa001744060a.mockapi.io/api/")
             .addConverterFactory(GsonConverterFactory.create())

@@ -1,7 +1,6 @@
 package com.example.mybetapp.data.remote
 
 import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.Json
 
 data class SportsDto(
     @SerializedName("i") var id: String? = null,
@@ -14,6 +13,6 @@ data class Event(
    @SerializedName("i") var id: String? = null,
    @SerializedName("si") var sportId: String? = null,
    @SerializedName("sh") var sh: String? = null,
-   @SerializedName("tt") var tt: Long? = null
+   @SerializedName("tt") var timestamp: Long? = null
 
 )

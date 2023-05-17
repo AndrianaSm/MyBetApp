@@ -4,27 +4,42 @@ import androidx.annotation.DrawableRes
 import com.example.mybetapp.R
 
 sealed class SportIcon(
-    @DrawableRes val iconRes: Int
+    @DrawableRes val iconRes: Int,
+    val contentDescription: String
 ) {
     object Soccer : SportIcon(
-        iconRes = R.drawable.soccer
-    )
+        iconRes = R.drawable.soccer,
+        contentDescription = "soccer"
+        )
+
     object Basketball : SportIcon(
-        iconRes = R.drawable.basketball
-    )
+        iconRes = R.drawable.basketball,
+        contentDescription = "basketball"
+
+        )
+
     object BeachVolleyBall : SportIcon(
-        iconRes = R.drawable.soccer
+        iconRes = R.drawable.soccer,
+        contentDescription = "beach volleyball"
     )
+
     object ESports : SportIcon(
-        iconRes = R.drawable.esports
+        iconRes = R.drawable.esports,
+        contentDescription = "e sports"
     )
+
     object HandBall : SportIcon(
-        iconRes = R.drawable.handball
+        iconRes = R.drawable.handball,
+        contentDescription = "handball"
     )
+
     object TableTennis : SportIcon(
-        iconRes = R.drawable.table_tennis
+        iconRes = R.drawable.table_tennis,
+        contentDescription = "table tennis"
     )
+
     object Tennis : SportIcon(
-        iconRes = R.drawable.tennis
+        iconRes = R.drawable.tennis,
+        contentDescription = "tennis"
     )
 }

@@ -11,8 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mybetapp.R
 import com.example.mybetapp.domain.sports.EventData
@@ -36,7 +38,7 @@ fun EventsRow(
                 .clickable { onFavouriteClicked() },
             tint = if (eventData.isFavourite) Yellow else LighGrey,
             painter = painterResource(id = R.drawable.star),
-            contentDescription = "favourite"
+            contentDescription = stringResource(R.string.favourite_icon_content_description)
         )
         Text(
             text = eventData.player1,
@@ -57,4 +59,18 @@ fun EventsRow(
         CountdownTimer(eventStartDateSeconds = eventData.time)
 
     }
+}
+
+@Preview
+@Composable
+fun EventsRowPreview() {
+    EventsRow(
+        eventData = EventData(
+            eventId = "",
+            time = 1683102780,
+            isFavourite = true,
+            player2 = "PAOK",
+            player1 = "OSFP"
+        ), onFavouriteClicked = { }
+    )
 }

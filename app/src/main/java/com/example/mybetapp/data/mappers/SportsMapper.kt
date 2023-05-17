@@ -1,9 +1,8 @@
 package com.example.mybetapp.data.mappers
 
-import androidx.annotation.DrawableRes
-import com.example.mybetapp.R
 import com.example.mybetapp.data.remote.SportsDto
 import com.example.mybetapp.domain.sports.EventData
+import com.example.mybetapp.domain.sports.SportIcon
 import com.example.mybetapp.domain.sports.SportInfo
 
 fun List<SportsDto>.toSportDataMap(): List<SportInfo> {
@@ -16,23 +15,22 @@ fun List<SportsDto>.toSportDataMap(): List<SportInfo> {
                     isFavourite = false,
                     player1 = event.description?.substringBefore("-").orEmpty(),
                     player2 = event.description?.substringAfter("-").orEmpty(),
-                    time = event.tt ?: 0,
+                    time = event.timestamp ?: 0,
                     eventId = event.id.orEmpty()
                 )
             })
     }
 }
 
-@DrawableRes
-fun getSportDrawable(id: String): Int {
+fun getSportDrawable(id: String): SportIcon? {
     return when (id) {
-        "FOOT" -> R.drawable.soccer
-        "BASK" -> R.drawable.basketball
-        "TENN" -> R.drawable.tennis
-        "TABL" -> R.drawable.table_tennis
-        "ESPS" -> R.drawable.esports
-        "HAND" -> R.drawable.handball
-        "BCHV" -> R.drawable.beach_volleyball
-        else -> R.drawable.question
+        "FOOT" -> SportIcon.Soccer
+        "BASK" -> SportIcon.Basketball
+        "TENN" -> SportIcon.Tennis
+        "TABL" -> SportIcon.TableTennis
+        "ESPS" -> SportIcon.ESports
+        "HAND" -> SportIcon.HandBall
+        "BCHV" -> SportIcon.BeachVolleyBall
+        else -> null
     }
 }

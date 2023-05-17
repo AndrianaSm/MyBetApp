@@ -18,7 +18,6 @@ class SportsViewModel @Inject constructor(
 ) : ViewModel() {
 
     var state by mutableStateOf(SportsState())
-    private var countDownTimer: CountDownTimer? = null
 
     fun loadSportsInfo() {
         viewModelScope.launch {

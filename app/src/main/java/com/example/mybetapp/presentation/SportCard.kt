@@ -6,22 +6,26 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mybetapp.R
 import com.example.mybetapp.domain.sports.EventData
+import com.example.mybetapp.domain.sports.SportIcon
 import com.example.mybetapp.domain.sports.SportInfo
 import com.example.mybetapp.ui.theme.DarkBlue
 import com.example.mybetapp.ui.theme.LighBlue
 import com.example.mybetapp.ui.theme.LighGrey
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun SportCard(
     modifier: Modifier = Modifier,
@@ -53,12 +57,13 @@ fun SportCard(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
 
-                Image(
-                    modifier = Modifier.size(32.dp),
-                    painter = painterResource(id = sportInfo.sportIcon),
-                    contentDescription = "sport"
-                )
-
+                sportInfo.sportIcon?.let { sportIcon ->
+                    Image(
+                        modifier = Modifier.size(32.dp),
+                        painter = painterResource(id = sportIcon.iconRes),
+                        contentDescription = sportIcon.contentDescription
+                    )
+                }
                 Text(
                     text = sportInfo.sportTitle,
                     color = LighGrey,
@@ -71,7 +76,7 @@ fun SportCard(
                         modifier = Modifier.size(32.dp),
                         painter = painterResource(id = R.drawable.arrow),
                         tint = LighGrey,
-                        contentDescription = "drop down"
+                        contentDescription = stringResource(R.string.drop_down_icon_content_description)
                     )
                 }
             }
@@ -118,7 +123,7 @@ fun SportRowPreview() {
                     player2 = "PAOK",
                     eventId = ""
                 )
-            ), sportTitle = "Soccer", sportIcon = R.drawable.soccer
+            ), sportTitle = "Soccer", sportIcon = SportIcon.ESports
         ),
         onFavouriteClicked = { _, _, _ -> }
     )

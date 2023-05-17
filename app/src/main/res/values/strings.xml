@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">myBetApp</string>
+    <string name="drop_down_icon_content_description">drop down</string>
+    <string name="favourite_icon_content_description">favourite</string>
     <plurals name="month">
         <item quantity="one">%s month</item>
         <item quantity="other">%s months</item>

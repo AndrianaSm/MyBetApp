@@ -17,7 +17,7 @@ class FormatTimeTest {
         // Then
         assertEquals("03:25:45", formattedTime)
     }
-    
+
     @Test
     fun formatTime_MoreThan24Hours_ReturnsDays() {
         // Given

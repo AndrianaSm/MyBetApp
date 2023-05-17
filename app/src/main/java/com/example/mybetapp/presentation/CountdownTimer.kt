@@ -76,6 +76,6 @@ fun formatTime(remainingSeconds: Long): String {
 
 @Preview
 @Composable
-fun rer() {
+fun CountdownTimerPreview() {
     CountdownTimer(1687668420)
 }
