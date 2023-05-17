@@ -1,18 +1,19 @@
 package com.example.mybetapp.data.remote
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 
 data class SportsDto(
-    @field:Json(name = "i") var id: String? = null,
-    @field:Json(name = "d") var description: String? = null,
-    @field:Json(name = "e") var events: ArrayList<Event> = arrayListOf()
+    @SerializedName("i") var id: String? = null,
+    @SerializedName("d") var description: String? = null,
+    @SerializedName("e") var events: ArrayList<Event> = arrayListOf()
 )
 
 data class Event(
-    @field:Json(name = "d") var description: String? = null,
-    @field:Json(name = "i") var id: String? = null,
-    @field:Json(name = "si") var sportId: String? = null,
-    @field:Json(name = "sh") var sh: String? = null,
-    @field:Json(name = "tt") var tt: Long? = null
+   @SerializedName("d") var description: String? = null,
+   @SerializedName("i") var id: String? = null,
+   @SerializedName("si") var sportId: String? = null,
+   @SerializedName("sh") var sh: String? = null,
+   @SerializedName("tt") var tt: Long? = null
 
 )
