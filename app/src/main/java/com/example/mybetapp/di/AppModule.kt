@@ -1,12 +1,12 @@
 package com.example.mybetapp.di
 
-import com.example.mybetapp.data.remote.SportApi
+import com.example.mybetapp.data.remote.SportsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import javax.inject.Singleton
 
@@ -16,10 +16,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideSprotsApi(): SportApi {
+    fun provideSprotsApi(): SportsApi {
         return Retrofit.Builder()
             .baseUrl("https://618d3aa7fe09aa001744060a.mockapi.io/api/")
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create()
     }

@@ -2,7 +2,7 @@ package com.example.mybetapp.data.remote
 
 import retrofit2.http.GET
 
-interface SportApi {
+interface SportsApi {
     @GET("sports")
-    suspend fun getSportsData(): SportsDto
+    suspend fun getSportsData(): List<SportsDto>
 }

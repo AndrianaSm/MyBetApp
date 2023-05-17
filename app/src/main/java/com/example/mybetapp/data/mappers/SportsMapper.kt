@@ -6,18 +6,19 @@ import com.example.mybetapp.data.remote.SportsDto
 import com.example.mybetapp.domain.sports.EventData
 import com.example.mybetapp.domain.sports.SportInfo
 
-fun SportsDto.toSportDataMap(): SportInfo {
-    return SportInfo(
-        sportIcon = getSportDrawable(id.orEmpty()),
-        sportTitle = description.orEmpty(),
-        events = events.map {
-            EventData(
-                isFavourite = false,
-                title = it.sh.orEmpty(),
-                time = it.tt ?: 0,
-            )
-        })
-
+fun List<SportsDto>.toSportDataMap(): List<SportInfo> {
+    return map {
+        SportInfo(
+            sportIcon = getSportDrawable(it.id.orEmpty()),
+            sportTitle = it.description.orEmpty(),
+            events = it.events.map { event ->
+                EventData(
+                    isFavourite = false,
+                    title = event.sh.orEmpty(),
+                    time = event.tt ?: 0,
+                )
+            })
+    }
 }
 
 @DrawableRes
